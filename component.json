@@ -1,0 +1,8 @@
+{
+  "name": "async-load",
+  "title": "Async load",
+  "description": "An extremely miminal script loader",
+  "version": "0.0.0",
+  "main": [ "load.js" ],
+  "dependencies": {}
+}
