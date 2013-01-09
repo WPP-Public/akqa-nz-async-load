@@ -1,0 +1,36 @@
+{
+  "name": "async-load",
+  "version": "0.1.0",
+  "description": "An extremely miminal asynchronous script loader",
+  "keywords": [ "async", "loader", "js", "amd" ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://heyday.mit-license.org/"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/heyday/async-load"
+    }
+  ],
+  "bugs": "https://github.com/heyday/async-load/issues",
+  "maintainers": [
+    {
+      "name": "Pieter Vanderwerff"
+    }
+  ],
+  "main": [ "load.js" ],
+  "devDependencies": {
+    "buster": "~0.6",
+    "buster-amd": "git://github.com/busterjs/buster-amd.git",
+    "jshint": "",
+    "requirejs": "",
+    "when": ""
+  },
+  "scripts": {
+    "start": "buster server",
+    "test": "jshint *.js && buster test"
+  }
+}
