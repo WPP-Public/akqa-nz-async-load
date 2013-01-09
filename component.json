@@ -1,8 +1,25 @@
 {
   "name": "async-load",
-  "title": "Async load",
-  "description": "An extremely miminal script loader",
-  "version": "0.0.0",
-  "main": [ "load.js" ],
-  "dependencies": {}
+  "version": "0.1.0",
+  "description": "An extremely miminal asynchronous script loader",
+  "keywords": [ "async", "loader", "js", "amd" ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://heyday.mit-license.org/"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/heyday/async-load"
+    }
+  ],
+  "bugs": "https://github.com/heyday/async-load/issues",
+  "maintainers": [
+    {
+      "name": "Pieter Vanderwerff"
+    }
+  ],
+  "main": [ "load.js" ]
 }

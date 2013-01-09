@@ -1,47 +1,92 @@
+/** @license MIT License (c) copyright Heyday Digital */
 
-// AMD or browser wrapper for module format
-( function( root, factory ) {
-	if ( typeof define === 'function' && define.amd ) {
-		define( factory );
-	} else {
-		root.asyncLoad = factory();
-	}
-}( this, function() {
-	'use strict';
+/**
+ * An extremely miminal asynchronous script loader
+ *
+ * Licensed under the MIT License at:
+ * http://heyday.mit-license.org/
+ *
+ * @version 0.1.0
+ */
+
+/*jshint browser:true, laxbreak:true */
+( function( define ) { 'use strict';
+define( function() {
 
 	// Constants
-	var SCRIPT = 'script',
-		TIMEOUT = 2000;
+	var SCRIPT = 'script';
 
-	// Loader function
-	return function( url, success, error ) {
+	/**
+	 * Load JavaScript file
+	 * @param  {String} url     Url to load
+	 * @param  {Function} success Success callback
+	 * @param  {Function} error   Error callback
+	 * @param  {Int} timeout Timeout false, a falsy value will disable this feature
+	 */
+	return function( url, success, error, timeout ) {
 		var el = document.createElement( SCRIPT ),
 			first_script = document.getElementsByTagName( SCRIPT )[ 0 ],
-			loaded = false,
-			timeout;
+			_timeout, finished, onError, onSuccess;
 
-		// Set url to script
+		/**
+		 * Cleanup and unbind events
+		 */
+		finished = function() {
+			el.onload = el.onerror = el.onreadystatechange = null;
+			clearTimeout( _timeout );
+		};
+
+		/**
+		 * Call sucess callback
+		 */
+		onSuccess = function() {
+			finished();
+			success && success();
+		};
+
+		/**
+		 * Call error callback
+		 */
+		onError = function() {
+			finished();
+			error && error();
+		};
+
+		/**
+		 * Set url to script
+		 */
 		el.src = url;
 
-		// If error callback is defined activate timeout
-		if ( error ) timeout = setTimeout( function() { error( url ); }, TIMEOUT );
+		/**
+		 * Set timeout if value is set
+		 */
+		if ( timeout ) {
+			_timeout = setTimeout( function() { onError(); }, timeout );
+		}
 
-		// Listen for load events
-		if ( success || error ) el.onload = el.onreadystatechange = function() {
+		/**
+		 * Bind to success events
+		 */
+		el.onload = el.onreadystatechange = function() {
 			var rs = this.readyState;
 
 			// Make sure the call back hasn't already been called
-			if ( loaded || ( rs && rs !== 'complete' && rs !== 'loaded' ) ) { return; }
-			loaded = true;
-
-			// Clear error timeout
-			if ( error ) { clearTimeout( timeout ); }
-
-			// Call success
-			if ( success ) { success( url ); }
+			if ( !rs || rs === 'complete' || rs === 'loaded' ) { onSuccess(); }
 		};
 
+		/**
+		 * Bind to error events
+		 */
+		el.onerror = onError;
+
+		/**
+		 * Insert script into DOM, starts download
+		 */
 		first_script.parentNode.insertBefore( el, first_script );
 	};
-
-} ) );
+} );
+} )( typeof define == 'function'
+	? define
+	: function( factory ) { this.asyncLoad = factory(); }
+	// Boilerplate for AMD, and browser global
+);
