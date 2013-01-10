@@ -1,7 +1,7 @@
 /** @license MIT License (c) copyright Heyday Digital */
 
 /**
- * An extremely miminal asynchronous script loader
+ * An extremely miminal asynchronous JavaScript loader
  *
  * Licensed under the MIT License at:
  * http://heyday.mit-license.org/

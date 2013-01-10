@@ -1,4 +1,4 @@
-less-helpers
+async-load
 ============
 
-Less helper mixins and styles
+An extremely miminal asynchronous JavaScript loader
