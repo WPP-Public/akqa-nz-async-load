@@ -37,7 +37,7 @@ define( function() {
 		};
 
 		/**
-		 * Set url to script
+		 * Set url of script to load
 		 */
 		el.src = url;
 
@@ -51,12 +51,12 @@ define( function() {
 			}
 
 			/**
-			 * Bind to success events
+			 * Bind to success/error events
 			 */
 			el.onload = el.onerror = el.onreadystatechange = function() {
 				var rs = this.readyState;
 
-				// Make sure the callback hasn't already been called
+				// Check for funky IE readyStates
 				if ( !rs || rs === 'complete' || rs === 'loaded' ) { finished(); }
 			};
 
