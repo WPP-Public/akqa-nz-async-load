@@ -19,14 +19,13 @@ define( function() {
 	/**
 	 * Load JavaScript file
 	 * @param  {String} url     Url to load
-	 * @param  {Function} success Success callback
-	 * @param  {Function} error   Error callback
+	 * @param  {Function} always On success or error callback
 	 * @param  {Int} timeout Timeout false, a falsy value will disable this feature
 	 */
-	return function( url, success, error, timeout ) {
+	return function( url, always, timeout ) {
 		var el = document.createElement( SCRIPT ),
 			first_script = document.getElementsByTagName( SCRIPT )[ 0 ],
-			_timeout, finished, onError, onSuccess;
+			_timeout, finished;
 
 		/**
 		 * Cleanup and unbind events
@@ -34,22 +33,7 @@ define( function() {
 		finished = function() {
 			el.onload = el.onerror = el.onreadystatechange = null;
 			clearTimeout( _timeout );
-		};
-
-		/**
-		 * Call sucess callback
-		 */
-		onSuccess = function() {
-			finished();
-			success && success();
-		};
-
-		/**
-		 * Call error callback
-		 */
-		onError = function() {
-			finished();
-			error && error();
+			always();
 		};
 
 		/**
@@ -57,27 +41,26 @@ define( function() {
 		 */
 		el.src = url;
 
-		/**
-		 * Set timeout if value is set
-		 */
-		if ( timeout ) {
-			_timeout = setTimeout( function() { onError(); }, timeout );
+		if ( always ) {
+
+			/**
+			 * Set timeout if value is set
+			 */
+			if ( timeout ) {
+				_timeout = setTimeout( finished, timeout );
+			}
+
+			/**
+			 * Bind to success events
+			 */
+			el.onload = el.onerror = el.onreadystatechange = function() {
+				var rs = this.readyState;
+
+				// Make sure the callback hasn't already been called
+				if ( !rs || rs === 'complete' || rs === 'loaded' ) { finished(); }
+			};
+
 		}
-
-		/**
-		 * Bind to success events
-		 */
-		el.onload = el.onreadystatechange = function() {
-			var rs = this.readyState;
-
-			// Make sure the call back hasn't already been called
-			if ( !rs || rs === 'complete' || rs === 'loaded' ) { onSuccess(); }
-		};
-
-		/**
-		 * Bind to error events
-		 */
-		el.onerror = onError;
 
 		/**
 		 * Insert script into DOM, starts download
