@@ -2,7 +2,12 @@
   "name": "async-load",
   "version": "0.1.0",
   "description": "An extremely miminal asynchronous JavaScript loader",
-  "keywords": [ "async", "loader", "js", "amd" ],
+  "keywords": [
+    "async",
+    "loader",
+    "js",
+    "amd"
+  ],
   "licenses": [
     {
       "type": "MIT",
@@ -21,16 +26,20 @@
       "name": "Pieter Vanderwerff"
     }
   ],
-  "main": [ "load.js" ],
+  "main": [
+    "load.js"
+  ],
   "devDependencies": {
     "buster": "~0.6",
     "buster-amd": "git://github.com/busterjs/buster-amd.git",
-    "jshint": "",
     "requirejs": "",
-    "when": ""
+    "when": "",
+    "grunt": "~0.4",
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-plugin-buster": "~2.0.0",
+    "grunt-contrib-uglify": "~0.1.1"
   },
   "scripts": {
-    "start": "buster server",
-    "test": "jshint *.js && buster test"
+    "test": "grunt jshint buster"
   }
 }
