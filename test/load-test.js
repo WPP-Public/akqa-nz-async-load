@@ -1,4 +1,4 @@
-/*jshint browser:true */
+/*jshint browser:true, laxbreak:true */
 ( function( define ) { 'use strict';
 define( [ 'buster', '../load', '../node_modules/when/when' ], function( buster, load, when ) {
 
@@ -30,7 +30,7 @@ define( [ 'buster', '../load', '../node_modules/when/when' ], function( buster, 
 				} );
 			} );
 
-			it( '2 files (parallel)', function() {
+			it( '2 files (parallel)', function() {/*jshint es5:true */
 				var d1 = when.defer(), d2 = when.defer();
 
 				load( 'test/fixtures/test1.js', function() {
@@ -67,7 +67,7 @@ define( [ 'buster', '../load', '../node_modules/when/when' ], function( buster, 
 				}, 1000 );
 			} );
 
-			it( '1 of 2 files (parallel)', function() {
+			it( '1 of 2 files (parallel)', function() {/*jshint es5:true */
 				var d1 = when.defer(), d2 = when.defer();
 
 				load( 'test/fixtures/test1.js', function() {
