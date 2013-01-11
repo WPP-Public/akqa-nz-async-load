@@ -37,7 +37,7 @@ API
 ===========
 
 ```javascript
-asyncLoad( {file url}, {success or error callback}, {timeout} );
+window.asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
 ```
 
 ### Basic load
@@ -86,7 +86,7 @@ window.asyncLoad( 'path/to/your/file.js', myCallBack, 1000 );
 The time out will cause the callback function to be triggered after the timeout interval has elapsed. Be aware that this will not stop the file from eventually loading.
 
 
-Common useage
+Common usage
 ===========
 
 ### Google analytics
