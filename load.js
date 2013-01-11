@@ -1,4 +1,4 @@
-/** @license MIT License (c) copyright Heyday Digital */
+/** @license MIT License (c) Heyday Digital */
 
 /**
  * An extremely miminal asynchronous JavaScript loader
@@ -10,11 +10,8 @@
  */
 
 /*jshint browser:true, laxbreak:true */
-( function( define ) { 'use strict';
+( function( define ) {
 define( function() {
-
-	// Constants
-	var SCRIPT = 'script';
 
 	/**
 	 * Load JavaScript file
@@ -23,15 +20,23 @@ define( function() {
 	 * @param  {Int} timeout Timeout false, a falsy value will disable this feature
 	 */
 	return function( url, always, timeout ) {
-		var el = document.createElement( SCRIPT ),
-			first_script = document.getElementsByTagName( SCRIPT )[ 0 ],
-			_timeout, finished;
+		var el = document.createElement( 'script' ),
+			first_script = document.getElementsByTagName( 'script' )[ 0 ],
+			_timeout, addEventCallback, finished;
+
+		/**
+		 * Bind to or unbind from onload and on error events
+		 * @param {Function|Null} cb Callback
+		 */
+		addEventCallback = function( cb ) {
+			el.onload = el.onerror = el.onreadystatechange = cb;
+		};
 
 		/**
 		 * Cleanup and unbind events
 		 */
 		finished = function() {
-			el.onload = el.onerror = el.onreadystatechange = null;
+			addEventCallback( null );
 			clearTimeout( _timeout );
 			always();
 		};
@@ -53,12 +58,12 @@ define( function() {
 			/**
 			 * Bind to success/error events
 			 */
-			el.onload = el.onerror = el.onreadystatechange = function() {
+			addEventCallback( function() {
 				var rs = this.readyState;
 
 				// Check for funky IE readyStates
 				if ( !rs || rs === 'complete' || rs === 'loaded' ) { finished(); }
-			};
+			} );
 
 		}
 
