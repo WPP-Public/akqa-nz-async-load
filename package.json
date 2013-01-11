@@ -40,6 +40,6 @@
     "grunt-contrib-uglify": "~0.1.1"
   },
   "scripts": {
-    "test": "grunt jshint buster"
+    "test": "grunt test"
   }
 }

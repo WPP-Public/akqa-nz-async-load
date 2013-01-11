@@ -19,7 +19,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-plugin-buster' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-compare-size' );
 
 	//
 	// Vars
@@ -48,12 +47,9 @@ module.exports = function( grunt ) {
 		}
 	};
 
-	// Compare size
-	config.compare_size[ 'load' ] = {
-		src: 'load.js'
-	};
-
 	// Default task
+	grunt.registerTask( 'test', [ 'jshint', 'buster' ] );
+	grunt.registerTask( 'build', [ 'jshint', 'buster', 'uglify' ] );
 	grunt.registerTask( 'default', [ 'jshint', 'buster', 'uglify' ] );
 
 	//
