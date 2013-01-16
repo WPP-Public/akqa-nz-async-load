@@ -1,8 +1,8 @@
 # async-load [![Build Status](https://secure.travis-ci.org/heyday/async-load.png)](http://travis-ci.org/heyday/async-load)
 
-An extremely miminal asynchronous JavaScript loader, **async-load** has a full unit test suite that passes in all popular browsers (and some not so popular browsers including IE6+), is **under 330bytes** when complied with uglify2 and gzipped, and has simple but featured API.
+An extremely miminal asynchronous JavaScript loader, **async-load** has a full unit test suite that passes in all popular browsers (and some not so popular browsers including IE6+), is **under 330bytes** when compiled with Uglify2 and gzipped, and has simple but featured API.
 
-This library is made to be as small as possible so it can be inlined into the head of your html. This means it can be used to bootstrap your application without using blocking script tags or ugly boilerplate code.
+This library is made to be as small as possible so it can be inlined into the head of your HTML. This means it can be used to bootstrap your application without using blocking script tags or ugly boilerplate code.
 
 
 Quick Start
@@ -115,11 +115,11 @@ Development
 ## Running the unit tests
 
 1. `npm install` - Install all required dev modules
-1. `npm install -g grunt-cli` - Install grunt
-1. `grunt test` - Lints all files then runs the unit tests in a Phantomjs instance
+1. `npm install -g grunt-cli` - Install Grunt
+1. `grunt test` - Lints all files, and then runs the unit tests in a PhantomJS instance
 
 ## Building the module locally
 
 1. `npm install` - Install all required dev modules
-1. `npm install -g grunt-cli` - Install grunt
-1. `grunt build` - Runs all tests then builds the production file
+1. `npm install -g grunt-cli` - Install Grunt
+1. `grunt build` - Runs all tests, and then builds the production file
