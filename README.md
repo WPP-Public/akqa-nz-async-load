@@ -5,8 +5,7 @@ An extremely miminal asynchronous JavaScript loader, **async-load** has a full u
 This library is made to be as small as possible so it can be inlined into the head of your HTML. This means it can be used to bootstrap your application without using blocking script tags or ugly boilerplate code.
 
 
-Quick Start
-===========
+## Quick Start
 
 Three options are available for getting the source:
 
@@ -33,8 +32,7 @@ Three options are available for getting the source:
 1. `async-load` will be available as `window.asyncLoad`
 
 
-API
-===========
+## API
 
 ```javascript
 asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
@@ -86,8 +84,7 @@ asyncLoad( 'path/to/your/file.js', myCallBack, 1000 );
 The time out will cause the callback function to be triggered after the timeout interval has elapsed. Be aware that this will not stop the file from eventually loading.
 
 
-Common usage
-===========
+## Common usage
 
 ### Google analytics
 
@@ -109,16 +106,15 @@ asyncLoad( '//use.typekit.com/{{your typekit id here}}.js', function() {
 
 For more advanced loading of typekit that allows you to control the loading states see the [typekit-load](https://github.com/heyday/typekit-load) module.
 
-Development
-===========
+## Development
 
-## Running the unit tests
+### Running the unit tests
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install Grunt
 1. `grunt test` - Lints all files, and then runs the unit tests in a PhantomJS instance
 
-## Building the module locally
+### Building the module locally
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install Grunt
