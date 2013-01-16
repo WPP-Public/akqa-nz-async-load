@@ -112,13 +112,13 @@ For more advanced loading of typekit that allows you to control the loading stat
 Development
 ===========
 
-# Running the unit tests
+## Running the unit tests
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install grunt
 1. `grunt test` - Lints all files then runs the unit tests in a Phantomjs instance
 
-# Building the module locally
+## Building the module locally
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install grunt
