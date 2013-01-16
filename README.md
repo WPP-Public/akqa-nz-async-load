@@ -40,14 +40,14 @@ asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
 
 ### Basic load
 
-###### Asynchronously load a file in an AMD environment:
+###### Asynchronously load a file with AMD environment:
 ```javascript
 define( [ 'async-load' ], function( asyncLoad ) {
 	asyncLoad( 'path/to/your/file.js' );
 } );
 ```
 
-###### Asynchronously load a file:
+###### Asynchronously load a file with browser global:
 ```javascript
 window.asyncLoad( 'path/to/your/file.js' );
 ```
