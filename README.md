@@ -37,37 +37,37 @@ API
 ===========
 
 ```javascript
-window.asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
+asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
 ```
 
 ### Basic load
 
-######Asynchronously load a file:
-```javascript
-window.asyncLoad( 'path/to/your/file.js' );
-```
-
-######Asynchronously load a file in an AMD enviroment:
+###### Asynchronously load a file in an AMD environment:
 ```javascript
 define( [ 'async-load' ], function( asyncLoad ) {
 	asyncLoad( 'path/to/your/file.js' );
 } );
 ```
 
+###### Asynchronously load a file:
+```javascript
+window.asyncLoad( 'path/to/your/file.js' );
+```
+
 ### Load with callback
 
-######Success or error callback:
+###### Success or error callback:
 ```javascript
-window.asyncLoad( 'path/to/your/file.js', function() {
+asyncLoad( 'path/to/your/file.js', function() {
 	// Success or error callback
 } );
-```	
+```
 
 Due to IE not supporting the standard `onload` and `onerror` events, it is not possible to reliably determine the status of the loaded file (i.e., whether it was successful or there was an error). Because of this the **async-load** API has only a single callback, which is called in both instances. It is recommended, therefore, that you determine the status of the load within the callback function.
 
-######Determine the status of your loaded file:
+###### Determine the status of your loaded file:
 ```javascript
-window.asyncLoad( 'path/to/your/file.js', function() {
+asyncLoad( 'path/to/your/file.js', function() {
 	try {
 		window.myInitFunction();
 	} catch() {
@@ -78,9 +78,9 @@ window.asyncLoad( 'path/to/your/file.js', function() {
 
 ### Load with timeout
 
-######Time out (in milliseconds):
+###### Time out (in milliseconds):
 ```javascript
-window.asyncLoad( 'path/to/your/file.js', myCallBack, 1000 );
+asyncLoad( 'path/to/your/file.js', myCallBack, 1000 );
 ```
 
 The time out will cause the callback function to be triggered after the timeout interval has elapsed. Be aware that this will not stop the file from eventually loading.
@@ -91,18 +91,16 @@ Common usage
 
 ### Google analytics
 
-
 ```javascript
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
 
-window.asyncLoad( ('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js' );
+asyncLoad(('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js');
 ```
 
 ### Typekit
 
-
 ```javascript
-window.asyncLoad( '//use.typekit.com/{{your typekit id here}}.js', function() {
+asyncLoad( '//use.typekit.com/{{your typekit id here}}.js', function() {
 	try {
 		window.Typekit.load();
 	} catch(e) {}
@@ -111,16 +109,17 @@ window.asyncLoad( '//use.typekit.com/{{your typekit id here}}.js', function() {
 
 For more advanced loading of typekit that allows you to control the loading states see the [typekit-load](https://github.com/heyday/typekit-load) module.
 
+Development
+===========
 
-# Running the Unit Tests
+# Running the unit tests
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install grunt
 1. `grunt test` - Lints all files then runs the unit tests in a Phantomjs instance
 
-
 # Building the module locally
 
 1. `npm install` - Install all required dev modules
 1. `npm install -g grunt-cli` - Install grunt
-1. `grunt build`
+1. `grunt build` - Runs all tests then builds the production file
