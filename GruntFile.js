@@ -26,8 +26,7 @@ module.exports = function( grunt ) {
 	var config = {
 		jshint: {},
 		buster: {},
-		uglify: {},
-		compare_size: {}
+		uglify: {}
 	};
 
 	// Lint all files
