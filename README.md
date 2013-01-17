@@ -68,8 +68,8 @@ Due to IE not supporting the standard `onload` and `onerror` events, it is not p
 asyncLoad( 'path/to/your/file.js', function() {
 	try {
 		window.myInitFunction();
-	} catch() {
-		console.log( 'ooo something went wrong, maybe the file didn\'t load?' );
+	} catch( e ) {
+		console.log( 'ooo something went wrong, maybe the file didn\'t load?', e );
 	}
 } );
 ```
@@ -97,7 +97,7 @@ asyncLoad(('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/g
 ### Typekit
 
 ```javascript
-asyncLoad( '//use.typekit.com/{{your typekit id here}}.js', function() {
+asyncLoad( '//use.typekit.com/{your-typekit-id}.js', function() {
 	try {
 		window.Typekit.load();
 	} catch(e) {}
