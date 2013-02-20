@@ -31,10 +31,10 @@
   ],
   "devDependencies": {
     "buster": "~0.6",
-    "buster-amd": "git://github.com/busterjs/buster-amd.git",
-    "requirejs": "",
-    "when": "",
-    "grunt": "~0.4",
+    "buster-amd": "~0.3.0",
+    "requirejs": "~2.1.0",
+    "when": "~1.8.0",
+    "grunt": "~0.4.0",
     "grunt-contrib-jshint": "~0.1.0",
     "grunt-plugin-buster": "~2.0.0",
     "grunt-contrib-uglify": "~0.1.1"
