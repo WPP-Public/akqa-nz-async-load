@@ -66,11 +66,18 @@ define( function() {
 			} );
 
 		}
+		if (
+                        typeof first_script === 'undefined' ||
+                        typeof first_script.parentNode === 'undefined') {
+                        var head = document.getElementsByTagName('head')[0];
+                        head.appendChild(el);
+                } else {
+                        /**
+                        * Insert script into DOM, starts download
+                        */
+                	first_script.parentNode.insertBefore( el, first_script );
+                }
 
-		/**
-		 * Insert script into DOM, starts download
-		 */
-		first_script.parentNode.insertBefore( el, first_script );
 	};
 } );
 } )( typeof define == 'function'
