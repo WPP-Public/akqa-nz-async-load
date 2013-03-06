@@ -1,6 +1,7 @@
 {
   "name": "async-load",
   "version": "0.1.0",
+  "main": [ "load.js" ],
   "description": "An extremely miminal asynchronous JavaScript loader",
   "keywords": [ "async", "loader", "js", "amd" ],
   "licenses": [
@@ -21,5 +22,11 @@
       "name": "Pieter Vanderwerff"
     }
   ],
-  "main": [ "load.js" ]
+  "ignore": [
+    "test/",
+    ".gitignore",
+    ".travis.yml",
+    "Gruntfile.js",
+    "package.json"
+  ]
 }
