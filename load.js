@@ -6,7 +6,7 @@
  * Licensed under the MIT License at:
  * http://heyday.mit-license.org/
  *
- * @version 0.1.0
+ * @version 0.1.1
  */
 
 /*jshint browser:true, laxbreak:true */

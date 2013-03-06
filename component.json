@@ -1,6 +1,6 @@
 {
   "name": "async-load",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": [ "load.js" ],
   "description": "An extremely miminal asynchronous JavaScript loader",
   "keywords": [ "async", "loader", "js", "amd" ],
