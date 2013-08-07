@@ -1,7 +1,7 @@
 /** @license MIT License (c) Heyday Digital */
 
 /**
- * An extremely miminal asynchronous JavaScript loader
+ * An extremely minimal asynchronous JavaScript loader
  *
  * Licensed under the MIT License at:
  * http://heyday.mit-license.org/
@@ -16,8 +16,8 @@ define( function() {
 	/**
 	 * Load JavaScript file
 	 * @param  {String} url     Url to load
-	 * @param  {Function} always On success or error callback
-	 * @param  {Int} timeout Timeout false, a falsy value will disable this feature
+	 * @param  {Function} [always] On success or error callback
+	 * @param  {Int} [timeout] A false value will disable this feature
 	 */
 	return function( url, always, timeout ) {
 		var el = document.createElement( 'script' ),
