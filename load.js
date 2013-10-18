@@ -20,8 +20,10 @@ define( function() {
 	 * @param  {Int} [timeout] A false value will disable this feature
 	 */
 	return function( url, always, timeout ) {
-		var el = document.createElement( 'script' ),
-			first_script = document.getElementsByTagName( 'script' )[ 0 ],
+		var doc = document,
+            script = 'script',
+            el = doc.createElement( script ),
+			first_script = doc.getElementsByTagName( script )[ 0 ],
 			_timeout, addEventCallback, finished;
 
 		/**
