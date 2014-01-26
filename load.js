@@ -9,7 +9,7 @@
  * @version 0.1.2
  */
 
-/*jshint browser:true, laxbreak:true */
+/*jshint browser:true, laxbreak:true, expr:true */
 ( function( define ) {
 define( function() {
 
@@ -73,8 +73,8 @@ define( function() {
 		first_script.parentNode.insertBefore( el, first_script );
 	};
 } );
-} )( typeof define == 'function'
+} )( typeof define === 'function' && define.amd
 	? define
-	: function( factory ) { this.asyncLoad = factory(); }
-	// Boilerplate for AMD, and browser global
+	: function( factory ) { typeof exports === 'object' ? module.exports = factory() : this.asyncLoad = factory(); }
+	// Boilerplate for AMD, CommonJS and browser global
 );

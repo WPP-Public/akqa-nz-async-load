@@ -12,6 +12,7 @@ Three options are available for getting the source:
 * [Download the latest release](https://github.com/heyday/async-load/zipball/master).
 * Clone the repo: `git clone git://github.com/heyday/async-load.git`.
 * Install with [Bower](http://twitter.github.com/bower): `bower install async-load`.
+* Install with [npm](https://npmjs.org/): `npm install async-load`.
 
 ### AMD
 
@@ -25,6 +26,10 @@ Three options are available for getting the source:
 	```
 
 1. `define( [ 'async-load', ... ], function( load, ... ) { ... } );` or `require( [ 'async-load', ... ], function( load, ... ) { ... } );`
+
+### CommonJS
+
+1. `require( 'async-load' );`
 
 ### Script Tag
 
@@ -44,6 +49,15 @@ asyncLoad( 'path/to/file.js', mySuccessOrErrorFunction, timeoutInMilliseconds );
 ```javascript
 define( [ 'async-load' ], function( asyncLoad ) {
 	asyncLoad( 'path/to/your/file.js' );
+} );
+```
+
+###### Asynchronously load a file with CommonJS environment:
+```javascript
+var asyncLoad = require( 'async-load' );
+
+asyncLoad( 'path/to/your/file.js', function() {
+	// Success or error callback
 } );
 ```
 
