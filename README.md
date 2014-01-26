@@ -1,6 +1,6 @@
 # async-load [![Build Status](https://secure.travis-ci.org/heyday/async-load.png)](http://travis-ci.org/heyday/async-load)
 
-An extremely minimal asynchronous JavaScript loader, **async-load** has a full unit test suite that passes in all popular browsers (and some not so popular browsers including IE6+), is **under 150bytes** when compiled with Uglify2 and gzipped, and has simple but featured API.
+An extremely minimal asynchronous JavaScript loader, **async-load** has a full unit test suite that passes in all popular browsers (and some not so popular browsers including IE6+), is **under 160bytes** when compiled with Uglify2 and gzipped, and has simple but featured API.
 
 This library is made to be as small as possible so it can be inlined into the head of your HTML. This means it can be used to bootstrap your application without using blocking script tags or ugly boilerplate code.
 
